@@ -1,13 +1,8 @@
 services:
-  - name: reminder-bot
-    env:
+  - type: worker
+    name: reminder-bot
+    envVars:
       - key: RENDER
         value: "true"
-  - name: static
-    build_command: pip install -r requirements.txt
-    env: []
-    shell: none
-  - name: web
-    build_command: null
-    env: []
-    shell: python bot.py
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python bot.py"
