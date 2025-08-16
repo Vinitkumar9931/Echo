@@ -1,6 +1,7 @@
 services:
   - type: worker
     name: reminder-bot
+    runtime: python
     envVars:
       - key: RENDER
         value: "true"
