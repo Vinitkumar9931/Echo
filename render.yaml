@@ -1,9 +1,12 @@
 services:
-  - type: worker
+  - type: web
     name: reminder-bot
-    runtime: python
+    env: python
+    plan: free
+    branch: main
+    autoDeploy: true
+    buildCommand: "pip install -r requirements.txt"
+    startCommand: "python bot.py"
     envVars:
       - key: RENDER
         value: "true"
-    buildCommand: "pip install -r requirements.txt"
-    startCommand: "python bot.py"
